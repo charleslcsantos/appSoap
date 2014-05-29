@@ -9,33 +9,61 @@
   <body>
   	<div class="container">
 		<h1>Web Service</h1>
-		    <div class="row">
-		    	<div class="col-md-4">
-		    		<div class="box">
-				    	<h2>Informações do Servidor:</h2>
-				    	<p><strong>Endereço:</strong> localhost</p>
-				    	<p><strong>Linguagem do sistema:</strong> Java</p>
-				    	<p class="server-status"><strong>Status:</strong> Ativo</p>
-				    </div>
-		    	</div>
-		    	<div class="col-md-8"> 
-				    <div class="box">
-				    	<form class="form-inline" role="form" action="/" method="post">
-						  <div class="form-group"> 
-						    <input type="number" class="form-control" name="valor1" placeholder="Valor 1">
-						  </div>
-						  <strong>+</strong>
-						  <div class="form-group"> 
-						    <input type="number" class="form-control" name="valor2" placeholder="Valor 2">
-						  </div>
-						  <button type="submit" class="btn btn-primary">Calcular</button>
-						</form>
-						<div class="resultado">
-							Resultado = <label><%= result %></label>
-						</div>
-				    </div>
-		    	</div> 
-		    </div>
+	    <div class="row">
+	    	<div class="col-md-4">
+	    		<div class="box">
+			    	<h2>Informações do Servidor:</h2>
+			    	<p><strong>Endereço:</strong> 192.168.0.101:8080</p>
+			    	<p><strong>Linguagem do sistema:</strong> Java</p>
+			    	<p class="server-status"><strong>Status:</strong> Ativo</p>
+			    </div>
+	    	</div>
+	    	<div class="col-md-8"> 
+			    <div class="box">
+			    	<h4>Calculadora</h4>
+			    	<form class="form-inline" role="form" action="/" method="post">
+			    	  <div class="row">
+			    	  	<div class="col-md-12">
+			    	  		<div class="form-group">
+				    			<div class="radio">
+								  <label>
+								    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" onclick="changeOp('+','soma')" checked>
+								    Soma
+								  </label>
+								</div>
+								<div class="radio">
+								  <label>
+								    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" onclick="changeOp('-', 'subtracao')">
+								    Subtração
+								  </label>
+								</div>
+				    		</div>
+			    	  	</div>
+			    	  </div>
+					  <div class="form-group"> 
+					    <input type="number" class="form-control" name="valor1" placeholder="Valor 1">
+					  </div>
+					  <label id="op"> + </label>
+					  <div class="form-group"> 
+					    <input type="number" class="form-control" name="valor2" placeholder="Valor 2">
+					  </div>
+					  <input type="text" class="hide" name="op" id="operacao" value="soma">
+					  <button type="submit" class="btn btn-primary">Calcular</button>
+					</form>
+					<div class="resultado">
+						Resultado = <label><%= result %></label>
+					</div>
+			    </div>
+	    	</div> 
+	    </div>
   	</div> 
+  	<script type="text/javascript">
+  		function changeOp(symbol, operacao){
+  			var label = document.getElementById("op");
+  			var input = document.getElementById("operacao");
+  			label.innerHTML = symbol;
+  			input.value = operacao;
+  		}
+  	</script>
   </body>
 </html>

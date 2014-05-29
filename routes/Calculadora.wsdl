@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<wsdl:definitions targetNamespace="http://webservice" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice" xmlns:intf="http://webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <!--WSDL created by Apache Axis version: 1.4
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
-  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="subtracao">
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="sub">
     <complexType>
      <sequence>
-      <element name="a" type="xsd:double"/>
-      <element name="b" type="xsd:double"/>
+      <element name="n1" type="xsd:double"/>
+      <element name="n2" type="xsd:double"/>
      </sequence>
     </complexType>
    </element>
-   <element name="subtracaoResponse">
+   <element name="subResponse">
     <complexType>
      <sequence>
-      <element name="subtracaoReturn" type="xsd:double"/>
+      <element name="subReturn" type="xsd:double"/>
      </sequence>
     </complexType>
    </element>
    <element name="soma">
     <complexType>
      <sequence>
-      <element name="a" type="xsd:double"/>
-      <element name="b" type="xsd:double"/>
+      <element name="n1" type="xsd:double"/>
+      <element name="n2" type="xsd:double"/>
      </sequence>
     </complexType>
    </element>
@@ -37,17 +37,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="somaResponse">
+   <wsdl:message name="subRequest">
 
-      <wsdl:part element="impl:somaResponse" name="parameters">
+      <wsdl:part element="impl:sub" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="subtracaoRequest">
+   <wsdl:message name="somaResponse">
 
-      <wsdl:part element="impl:subtracao" name="parameters">
+      <wsdl:part element="impl:somaResponse" name="parameters">
 
       </wsdl:part>
 
@@ -61,9 +61,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="subtracaoResponse">
+   <wsdl:message name="subResponse">
 
-      <wsdl:part element="impl:subtracaoResponse" name="parameters">
+      <wsdl:part element="impl:subResponse" name="parameters">
 
       </wsdl:part>
 
@@ -71,13 +71,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Calculadora">
 
-      <wsdl:operation name="subtracao">
+      <wsdl:operation name="sub">
 
-         <wsdl:input message="impl:subtracaoRequest" name="subtracaoRequest">
+         <wsdl:input message="impl:subRequest" name="subRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:subtracaoResponse" name="subtracaoResponse">
+         <wsdl:output message="impl:subResponse" name="subResponse">
 
        </wsdl:output>
 
@@ -101,17 +101,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="subtracao">
+      <wsdl:operation name="sub">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="subtracaoRequest">
+         <wsdl:input name="subRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="subtracaoResponse">
+         <wsdl:output name="subResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -13,15 +13,23 @@ router.get('/', function(req, res) {
 
 /* Post Calcular. */
 router.post('/', function(req, res) {
-  console.log("Cheguei no router!");
-
-  args = {n1: req.body.valor1, n2: req.body.valor2};
-
+	args = {n1: req.body.valor1, n2: req.body.valor2};
 	soap.createClient(url, function(err, client) {
-	  client.soma(args, function(err, result) {
-	      // res.send(result.somaReturn); 
-	      res.render('index', { title: 'WebService', result: result.somaReturn || '0' });
-	  });
-	});
+		console.log("req    - " + req.body.op);
+		if(req.body.op == "soma"){
+			client.soma(args, function(err, result) {
+			      // res.send(result.somaReturn); 
+			      res.render('index', { title: 'WebService', result: result.somaReturn || '0' });
+			});
+		} else {
+			console.log("entrei no else");
+			client.sub(args, function(err, result) {
+				console.log("entrei na function ");
+			      // res.send(result.somaReturn); 
+			      res.render('index', { title: 'WebService', result: result.subReturn || '0' });
+			      console.log(result);
+			});
+		}
+	}); 
 });
 module.exports = router;
