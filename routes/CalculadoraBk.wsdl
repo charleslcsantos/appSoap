@@ -34,46 +34,8 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="dividir">
-    <complexType>
-     <sequence>
-      <element name="n1" type="xsd:double"/>
-      <element name="n2" type="xsd:double"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="dividirResponse">
-    <complexType>
-     <sequence>
-      <element name="dividirReturn" type="xsd:double"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="multiplicar">
-    <complexType>
-     <sequence>
-      <element name="n1" type="xsd:double"/>
-      <element name="n2" type="xsd:double"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="multiplicarResponse">
-    <complexType>
-     <sequence>
-      <element name="multiplicarReturn" type="xsd:double"/>
-     </sequence>
-    </complexType>
-   </element>
   </schema>
  </wsdl:types>
-
-   <wsdl:message name="multiplicarRequest">
-
-      <wsdl:part element="impl:multiplicar" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
 
    <wsdl:message name="subRequest">
 
@@ -91,14 +53,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="dividirResponse">
-
-      <wsdl:part element="impl:dividirResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="somaRequest">
 
       <wsdl:part element="impl:soma" name="parameters">
@@ -107,25 +61,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="dividirRequest">
-
-      <wsdl:part element="impl:dividir" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="subResponse">
 
       <wsdl:part element="impl:subResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="multiplicarResponse">
-
-      <wsdl:part element="impl:multiplicarResponse" name="parameters">
 
       </wsdl:part>
 
@@ -152,30 +90,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:somaResponse" name="somaResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="dividir">
-
-         <wsdl:input message="impl:dividirRequest" name="dividirRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:dividirResponse" name="dividirResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="multiplicar">
-
-         <wsdl:input message="impl:multiplicarRequest" name="multiplicarRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:multiplicarResponse" name="multiplicarResponse">
 
        </wsdl:output>
 
@@ -223,49 +137,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="dividir">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="dividirRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="dividirResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="multiplicar">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="multiplicarRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="multiplicarResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
    </wsdl:binding>
 
    <wsdl:service name="CalculadoraService">
 
       <wsdl:port binding="impl:CalculadoraSoapBinding" name="Calculadora">
 
-         <wsdlsoap:address location="http://10.176.96.80:8080/Calculadora/services/Calculadora"/>
+         <wsdlsoap:address location="http://10.176.96.80:8080//Calculadora/services/Calculadora"/>
 
       </wsdl:port>
 
